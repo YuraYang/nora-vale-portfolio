@@ -256,4 +256,31 @@
 	}
 	document.addEventListener("pointerdown", autoStartMusic);
 	document.addEventListener("keydown", autoStartMusic);
+
+	/* ---------- 触屏旋转特效：以触屏点为中心，飞鸟环旋转 ---------- */
+	const spins = new Map();
+	function spawnSpin(x, y, id) {
+		const el = document.createElement("div");
+		el.className = "touch-spin";
+		el.style.left = x + "px";
+		el.style.top = y + "px";
+		el.innerHTML = '<span class="ring"></span>';
+		document.body.appendChild(el);
+		requestAnimationFrame(() => el.classList.add("show"));
+		spins.set(id, el);
+	}
+	function killSpin(id) {
+		const el = spins.get(id);
+		if (!el) return;
+		spins.delete(id);
+		el.classList.remove("show");
+		setTimeout(() => el.remove(), 350);
+	}
+	document.addEventListener("pointerdown", (e) => {
+		// 音乐按钮已 stopPropagation，这里不会触发；灯箱/输入框内不生成
+		if (e.target.closest(".lightbox, input, textarea, .music-wrap")) return;
+		spawnSpin(e.clientX, e.clientY, e.pointerId);
+	});
+	document.addEventListener("pointerup", (e) => killSpin(e.pointerId));
+	document.addEventListener("pointercancel", (e) => killSpin(e.pointerId));
 })();

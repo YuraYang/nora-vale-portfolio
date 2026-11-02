@@ -912,3 +912,32 @@ a {
 		grid-template-columns: 1fr;
 	}
 }
+
+/* ---- 触屏旋转特效（飞鸟环，以触屏点为中心旋转） ---- */
+.touch-spin {
+	position: fixed;
+	z-index: 350;
+	pointer-events: none;
+	opacity: 0;
+	transform: translate(-50%, -50%); /* 以触屏点为正中心 */
+	transition: opacity 0.3s ease;
+}
+.touch-spin.show {
+	opacity: 0.95;
+}
+.touch-spin .ring {
+	display: block;
+	width: 132px;
+	height: auto;
+	background: url("images/touch-birds.png") center / contain no-repeat;
+	filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.18));
+	animation: touchspin 3.2s linear infinite; /* 适中转速：约 3.2s 一圈 */
+}
+@keyframes touchspin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
