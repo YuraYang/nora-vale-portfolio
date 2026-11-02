@@ -685,6 +685,13 @@ a {
 	border-top: 1px solid var(--hair);
 	background: color-mix(in srgb, var(--bg) 82%, transparent);
 	backdrop-filter: blur(10px);
+	transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
+}
+/* 滚动时逐渐淡出 */
+.site-footer.hide {
+	opacity: 0;
+	transform: translateY(100%);
+	pointer-events: none;
 }
 .footer-row {
 	display: flex;

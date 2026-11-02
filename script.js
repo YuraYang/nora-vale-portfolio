@@ -6,6 +6,8 @@
 	"use strict";
 
 	const root = document.documentElement;
+	const footer = document.querySelector(".site-footer");
+	let lastScroll = 0;
 
 	/* ---------- 主题 ---------- */
 	const saved = localStorage.getItem("theme");
@@ -27,6 +29,8 @@
 		navLinks.forEach((a) => a.classList.toggle("current", a.dataset.page === i));
 		const active = document.querySelector(".page.active");
 		if (active) active.scrollTop = 0;
+		footer.classList.remove("hide");
+		lastScroll = 0;
 		closeMenu();
 	}
 
@@ -43,6 +47,27 @@
 		const current = [...pages].findIndex((p) => p.classList.contains("active"));
 		if (e.key === "ArrowRight") goPage(Math.min(current + 1, pages.length - 1));
 		if (e.key === "ArrowLeft") goPage(Math.max(current - 1, 0));
+	});
+
+	/* ---------- 页脚：滑动时逐渐淡出 ---------- */
+	document.querySelectorAll(".page").forEach((page) => {
+		page.addEventListener(
+			"scroll",
+			() => {
+				const st = page.scrollTop;
+				const atTop = st < 8;
+				const atBottom = st + page.clientHeight >= page.scrollHeight - 8;
+				if (atTop || atBottom) {
+					footer.classList.remove("hide");
+				} else if (st > lastScroll && st > 40) {
+					footer.classList.add("hide"); // 向下滑 -> 逐渐消失
+				} else if (st < lastScroll) {
+					footer.classList.remove("hide"); // 向上滑 -> 淡入
+				}
+				lastScroll = st;
+			},
+			{ passive: true }
+		);
 	});
 
 	/* ---------- 移动端菜单 ---------- */
