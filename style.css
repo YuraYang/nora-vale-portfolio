@@ -328,6 +328,7 @@ a {
 	text-align: center;
 	margin-top: 28px;
 	opacity: 0.6;
+	transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
 }
 
 /* ---- 通用 section 标题 ---- */
@@ -456,6 +457,14 @@ a {
 	font-size: 0.74rem;
 	color: #fff;
 	background: linear-gradient(transparent, rgba(0, 0, 0, 0.42));
+	transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+/* 滚动时逐渐淡出 */
+.reveal.faded,
+.scroll-hint.faded {
+	opacity: 0;
+	transform: translateY(10px);
+	pointer-events: none;
 }
 .reveal .mono {
 	color: #fff;
@@ -685,13 +694,6 @@ a {
 	border-top: 1px solid var(--hair);
 	background: color-mix(in srgb, var(--bg) 82%, transparent);
 	backdrop-filter: blur(10px);
-	transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
-}
-/* 滚动时逐渐淡出 */
-.site-footer.hide {
-	opacity: 0;
-	transform: translateY(100%);
-	pointer-events: none;
 }
 .footer-row {
 	display: flex;

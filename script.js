@@ -6,8 +6,9 @@
 	"use strict";
 
 	const root = document.documentElement;
-	const footer = document.querySelector(".site-footer");
 	let lastScroll = 0;
+	// 需要随滚动渐隐的“底部小字”
+	const fadeEls = document.querySelectorAll(".reveal, .scroll-hint");
 
 	/* ---------- 主题 ---------- */
 	const saved = localStorage.getItem("theme");
@@ -29,7 +30,7 @@
 		navLinks.forEach((a) => a.classList.toggle("current", a.dataset.page === i));
 		const active = document.querySelector(".page.active");
 		if (active) active.scrollTop = 0;
-		footer.classList.remove("hide");
+		fadeEls.forEach((el) => el.classList.remove("faded"));
 		lastScroll = 0;
 		closeMenu();
 	}
@@ -49,7 +50,7 @@
 		if (e.key === "ArrowLeft") goPage(Math.max(current - 1, 0));
 	});
 
-	/* ---------- 页脚：滑动时逐渐淡出 ---------- */
+	/* ---------- 底部小字：滑动时逐渐淡出 ---------- */
 	document.querySelectorAll(".page").forEach((page) => {
 		page.addEventListener(
 			"scroll",
@@ -57,13 +58,14 @@
 				const st = page.scrollTop;
 				const atTop = st < 8;
 				const atBottom = st + page.clientHeight >= page.scrollHeight - 8;
-				if (atTop || atBottom) {
-					footer.classList.remove("hide");
-				} else if (st > lastScroll && st > 40) {
-					footer.classList.add("hide"); // 向下滑 -> 逐渐消失
-				} else if (st < lastScroll) {
-					footer.classList.remove("hide"); // 向上滑 -> 淡入
-				}
+				const scrollingDown = st > lastScroll && st > 40;
+				fadeEls.forEach((el) => {
+					if (atTop || atBottom || st < lastScroll) {
+						el.classList.remove("faded"); // 顶部/底部/向上滑 -> 淡入
+					} else if (scrollingDown) {
+						el.classList.add("faded"); // 向下滑 -> 逐渐消失
+					}
+				});
 				lastScroll = st;
 			},
 			{ passive: true }
