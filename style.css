@@ -428,20 +428,37 @@ a {
 	opacity: 0.5;
 }
 .cover-0 {
-	background: linear-gradient(135deg, #c9b8ff, #8b5cf6);
+	background-image: url("images/cover0.png");
+	background-size: cover;
+	background-position: center;
 }
 .cover-1 {
-	background: repeating-linear-gradient(45deg, #d8c7ff 0 16px, #b9a3f5 16px 32px);
+	background-image: url("images/cover1.png");
+	background-size: cover;
+	background-position: center;
 }
 .cover-2 {
-	background: radial-gradient(circle at 22% 28%, #efe0ff, transparent 42%),
-		radial-gradient(circle at 80% 72%, #b39bff, transparent 46%), #cbb8ff;
+	background-image: url("images/cover2.png");
+	background-size: cover;
+	background-position: center;
 }
 .cover-3 {
-	background: linear-gradient(90deg, #1f1147, #7c3aed);
+	background-image: url("images/cover3.png");
+	background-size: cover;
+	background-position: center;
 }
 .cover-4 {
-	background: repeating-radial-gradient(circle at 50% 50%, #c9b8ff 0 12px, #a78bfa 12px 24px);
+	background-image: url("images/cover4.png");
+	background-size: cover;
+	background-position: center;
+}
+/* 图片封面不再叠加圆点纹理 */
+.cover-0::after,
+.cover-1::after,
+.cover-2::after,
+.cover-3::after,
+.cover-4::after {
+	display: none;
 }
 .cover-5 {
 	background: conic-gradient(from 120deg, #c9b8ff, #a78bfa, #f0abfc, #c9b8ff);

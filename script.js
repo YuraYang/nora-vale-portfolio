@@ -110,7 +110,7 @@
 
 	/* ---------- 作品数据（灯箱复用） ---------- */
 	const projectData = [
-		{ title: "须知", tags: "长按打开链接", meta: "https://www.kdocs.cn/l/cdBS5E2xKF70", url: "https://www.kdocs.cn/l/cdBS5E2xKF70" },
+		{ title: "须知", tags: "点击图片/链接打开", meta: "https://www.kdocs.cn/l/cdBS5E2xKF70", url: "https://www.kdocs.cn/l/cdBS5E2xKF70" },
 		{ title: "话术", tags: "想親口告訴你個秘密 先親口再說", meta: "https://www.kdocs.cn/l/colx9iFlSC1F", url: "https://www.kdocs.cn/l/colx9iFlSC1F" },
 		{ title: "板评", tags: "無論我再怎麼使壞 你都不能離開我", meta: "https://www.kdocs.cn/l/cq8gG1q46dxI", url: "https://www.kdocs.cn/l/cq8gG1q46dxI" },
 		{ title: "冠卡", tags: "你的啃咬不過是我允許的撒嬌", meta: "暂未整理合集 多数在pyq", url: null },
