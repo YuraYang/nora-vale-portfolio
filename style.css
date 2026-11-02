@@ -468,7 +468,7 @@ a {
 	background-position: center;
 }
 .cover-6 {
-	background-image: url("images/cover-self.png");
+	background-image: url("images/cover-about.jpg");
 	background-size: cover;
 	background-position: center;
 }
@@ -514,7 +514,7 @@ a {
 	max-width: 280px;
 	aspect-ratio: 3 / 4;
 	border-radius: 14px;
-	background-image: url("images/cover5.png");
+	background-image: url("images/cover-about.jpg");
 	background-size: cover;
 	background-position: center;
 	display: block;
