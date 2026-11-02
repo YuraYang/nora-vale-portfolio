@@ -102,7 +102,14 @@
 	function openLightbox(index) {
 		currentIndex = index;
 		const data = projectData[index];
-		lbCover.className = "lb-cover cover cover-" + index;
+		if (index === 4) {
+			lbCover.className = "lb-cover cover cover-4";
+			lbCover.innerHTML =
+				'<span class="cover-half cover-4-top"></span><span class="cover-half cover-4-bot"></span>';
+		} else {
+			lbCover.className = "lb-cover cover cover-" + index;
+			lbCover.innerHTML = "";
+		}
 		lbTitle.textContent = data.title;
 		lbCaption.textContent = data.tags;
 		if (data.url) {
