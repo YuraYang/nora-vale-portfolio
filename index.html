@@ -129,56 +129,59 @@
 							<button class="project-btn" data-index="0" type="button" aria-label="打开 须知">
 								<span class="cover cover-0"></span>
 							</button>
-							<h3>须知</h3>
-							<p class="mono">
-								<a href="https://www.kdocs.cn/l/cdBS5E2xKF70" target="_blank" rel="noopener">kdocs.cn/l/cdBS5E2xKF70</a>
-							</p>
+						<h3>须知</h3>
+						<p class="mono">
+							<a href="https://www.kdocs.cn/l/cdBS5E2xKF70" target="_blank" rel="noopener">kdocs.cn/l/cdBS5E2xKF70</a>
+						</p>
+						<p class="card-note">点击图片/链接打开</p>
 						</li>
 						<li class="project" data-type="brand">
 							<button class="project-btn" data-index="1" type="button" aria-label="打开 话术">
 								<span class="cover cover-1"></span>
 							</button>
-							<h3>话术</h3>
-							<p class="mono">
-								<a href="https://www.kdocs.cn/l/colx9iFlSC1F" target="_blank" rel="noopener">kdocs.cn/l/colx9iFlSC1F</a>
-							</p>
+						<h3>话术</h3>
+						<p class="mono">
+							<a href="https://www.kdocs.cn/l/colx9iFlSC1F" target="_blank" rel="noopener">kdocs.cn/l/colx9iFlSC1F</a>
+						</p>
+						<p class="card-note">想親口告訴你個秘密 先親口再說</p>
 						</li>
 						<li class="project" data-type="web">
 							<button class="project-btn" data-index="2" type="button" aria-label="打开 板评">
 								<span class="cover cover-2"></span>
 							</button>
-							<h3>板评</h3>
-							<p class="mono">
-								<a href="https://www.kdocs.cn/l/cq8gG1q46dxI" target="_blank" rel="noopener">kdocs.cn/l/cq8gG1q46dxI</a>
-							</p>
+						<h3>板评</h3>
+						<p class="mono">
+							<a href="https://www.kdocs.cn/l/cq8gG1q46dxI" target="_blank" rel="noopener">kdocs.cn/l/cq8gG1q46dxI</a>
+						</p>
+						<p class="card-note">無論我再怎麼使壞 你都不能離開我</p>
 						</li>
 						<li class="project" data-type="product">
 							<button class="project-btn" data-index="3" type="button" aria-label="打开 冠卡">
 								<span class="cover cover-3"></span>
 							</button>
-							<h3>冠卡</h3>
-							<p class="mono">暂未整理合集 多数在pyq</p>
+						<h3>冠卡</h3>
+						<p class="mono">暂未整理合集 多数在pyq</p>
+						<p class="card-note">你的啃咬不過是我允許的撒嬌</p>
 						</li>
 						<li class="project" data-type="brand">
-							<button class="project-btn" data-index="4" type="button" aria-label="打开 头牌">
-								<span class="cover cover-4" role="img" aria-label="头牌：上 匕首 / 下 圣心">
-									<span class="cover-half cover-4-top"></span>
-									<span class="cover-half cover-4-bot"></span>
-								</span>
-							</button>
-							<h3>头牌</h3>
-							<p class="mono">
-								<a href="https://www.kdocs.cn/l/csaX8j2X6dxb" target="_blank" rel="noopener">kdocs.cn/l/csaX8j2X6dxb</a>
-							</p>
+						<button class="project-btn" data-index="4" type="button" aria-label="打开 头牌">
+							<span class="cover cover-4"></span>
+						</button>
+						<h3>头牌</h3>
+						<p class="mono">
+							<a href="https://www.kdocs.cn/l/csaX8j2X6dxb" target="_blank" rel="noopener">kdocs.cn/l/csaX8j2X6dxb</a>
+						</p>
+						<p class="card-note">你真不覺得自己有趣嗎 我的眼睛都離不開你</p>
 						</li>
 						<li class="project" data-type="web">
-							<button class="project-btn" data-index="5" type="button" aria-label="打开 自介">
-								<span class="cover cover-5"></span>
-							</button>
-							<h3>自介</h3>
-							<p class="mono">
-								<a href="https://www.kdocs.cn/l/crOmRGs4TVer" target="_blank" rel="noopener">kdocs.cn/l/crOmRGs4TVer</a>
-							</p>
+						<button class="project-btn" data-index="5" type="button" aria-label="打开 自介">
+							<span class="cover cover-6"></span>
+						</button>
+						<h3>自介</h3>
+						<p class="mono">
+							<a href="https://www.kdocs.cn/l/crOmRGs4TVer" target="_blank" rel="noopener">kdocs.cn/l/crOmRGs4TVer</a>
+						</p>
+						<p class="card-note">我保留一次你親我的權利</p>
 						</li>
 					</ul>
 					<p class="grid-empty mono" id="gridEmpty" hidden>剩下由我決定</p>
@@ -341,6 +344,11 @@
 		</div>
 
 		<div class="toast" id="toast" role="status" aria-live="polite"></div>
+		<button class="music-btn" id="musicBtn" type="button" aria-label="播放背景音乐" aria-pressed="false">
+			<svg class="ic-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7Z"/></svg>
+			<svg class="ic-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3v14H7Zm6 0h3v14h-3Z"/></svg>
+		</button>
+		<audio id="bgm" loop preload="auto" src="audio/bgm.mp3"></audio>
 		<script src="script.js" defer></script>
 	</body>
 </html>

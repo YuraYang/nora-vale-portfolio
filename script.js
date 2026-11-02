@@ -88,7 +88,7 @@
 		{ title: "板评", tags: "無論我再怎麼使壞 你都不能離開我", meta: "https://www.kdocs.cn/l/cq8gG1q46dxI", url: "https://www.kdocs.cn/l/cq8gG1q46dxI" },
 		{ title: "冠卡", tags: "你的啃咬不過是我允許的撒嬌", meta: "暂未整理合集 多数在pyq", url: null },
 		{ title: "头牌", tags: "你真不覺得自己有趣嗎 我的眼睛都離不開你", meta: "https://www.kdocs.cn/l/csaX8j2X6dxb", url: "https://www.kdocs.cn/l/csaX8j2X6dxb" },
-		{ title: "自介", tags: "我保留一次你親我的權利", meta: "https://www.kdocs.cn/l/crOmRGs4TVer", url: "https://www.kdocs.cn/l/crOmRGs4TVer" },
+		{ title: "自介", tags: "我保留一次你親我的權利", meta: "https://www.kdocs.cn/l/crOmRGs4TVer", url: "https://www.kdocs.cn/l/crOmRGs4TVer", cover: 6 },
 	];
 
 	/* ---------- 灯箱 ---------- */
@@ -102,14 +102,8 @@
 	function openLightbox(index) {
 		currentIndex = index;
 		const data = projectData[index];
-		if (index === 4) {
-			lbCover.className = "lb-cover cover cover-4";
-			lbCover.innerHTML =
-				'<span class="cover-half cover-4-top"></span><span class="cover-half cover-4-bot"></span>';
-		} else {
-			lbCover.className = "lb-cover cover cover-" + index;
-			lbCover.innerHTML = "";
-		}
+		lbCover.className = "lb-cover cover cover-" + (data.cover ?? index);
+		lbCover.innerHTML = "";
 		lbTitle.textContent = data.title;
 		lbCaption.textContent = data.tags;
 		if (data.url) {
@@ -236,4 +230,30 @@
 			el.addEventListener("mouseleave", () => cursor.classList.remove("is-active"));
 		});
 	}
+
+	/* ---------- 背景音乐（从视频提取） ---------- */
+	const bgm = document.getElementById("bgm");
+	const musicBtn = document.getElementById("musicBtn");
+	function syncMusicBtn() {
+		const playing = !bgm.paused && !bgm.ended;
+		musicBtn.classList.toggle("playing", playing);
+		musicBtn.setAttribute("aria-pressed", String(playing));
+		musicBtn.setAttribute("aria-label", playing ? "暂停背景音乐" : "播放背景音乐");
+	}
+	musicBtn.addEventListener("pointerdown", (e) => e.stopPropagation());
+	musicBtn.addEventListener("click", () => {
+		if (bgm.paused) bgm.play().catch(() => {});
+		else bgm.pause();
+	});
+	bgm.addEventListener("play", syncMusicBtn);
+	bgm.addEventListener("pause", syncMusicBtn);
+	/* 首次用户交互时自动开始（浏览器禁止无手势自动播放） */
+	function autoStartMusic() {
+		if (!bgm.paused) return;
+		bgm.play().catch(() => {});
+		document.removeEventListener("pointerdown", autoStartMusic);
+		document.removeEventListener("keydown", autoStartMusic);
+	}
+	document.addEventListener("pointerdown", autoStartMusic);
+	document.addEventListener("keydown", autoStartMusic);
 })();
