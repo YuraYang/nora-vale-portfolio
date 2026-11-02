@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<!--
+  Nora Vale — 点击切换式作品集
+  原单页内容被切分为：封面 / 作品 / 关于 / 联系 四个页面
+  通过顶部导航点击切换，保留主题、灯箱、实时校验、本地时间等交互
+-->
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
+		<meta name="color-scheme" content="light dark" />
+		<meta name="theme-color" content="#f4f2ee" />
+		<meta
+			name="theme-color"
+			media="(prefers-color-scheme: dark)"
+			content="#100f0e"
+		/>
+		<title>温 研 — Product &amp; brand designer</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Mono:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<a class="skip" href="#page-hero">Skip to content</a>
+		<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+		<!-- ---- Header（全局） ---- -->
+		<header class="site-header" id="top">
+			<div class="wrap header-row">
+				<a class="name" href="#page-hero" data-page="0">温 研</a>
+				<nav class="nav" id="nav" aria-label="Primary">
+					<a href="#page-work" data-page="1">选择开始了</a>
+					<a href="#page-about" data-page="2">你需要知道</a>
+					<a href="#page-contact" data-page="3">还没有结束</a>
+				</nav>
+				<div class="header-tools">
+					<a class="availability" href="#page-contact" data-page="3"
+						><span class="dot" aria-hidden="true"></span
+						><span class="label">Available Q4</span></a
+					>
+					<button
+						class="icon-btn"
+						id="themeToggle"
+						type="button"
+						aria-label="切换主题"
+					>
+						<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+							<circle cx="12" cy="12" r="4" />
+							<path
+								d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+							/>
+						</svg>
+						<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+						</svg>
+					</button>
+					<button
+						class="icon-btn menu-btn"
+						id="menuBtn"
+						type="button"
+						aria-label="打开菜单"
+						aria-expanded="false"
+						aria-controls="nav"
+					>
+						<svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M4 8h16M4 16h16" />
+						</svg>
+						<svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M6 6l12 12M18 6 6 18" />
+						</svg>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<!-- ---- 页面容器：每屏一个板块 ---- -->
+		<div class="pages" id="pages">
+			<!-- 页面 0 · 封面 -->
+			<section class="page active" data-page="0" id="page-hero" aria-label="封面">
+				<div class="hero wrap">
+					<p class="mono">別總讓我一眼看穿你的卑劣</p>
+					<h1>恶名<br /><em>总比无名好</em></h1>
+					<p class="role">20 le-t infj 金牛 非三无 在小圈内 不接下位</p>
+				</div>
+				<div class="marquee" aria-label="Skills">
+					<div class="marquee-track" id="marquee">
+						<span>白 话</span><span>剖 析</span><span>贬 低</span>
+						<span>恶 劣</span><span>权 力</span><span>诱 捕</span>
+						<span>精 控</span><span>Dom</span>
+					</div>
+				</div>
+				<div class="scroll-hint mono" aria-hidden="true">点击上方导航切换页面 ↓</div>
+			</section>
+
+			<!-- 页面 1 · 作品 -->
+			<section class="page" data-page="1" id="page-work" aria-label="作品">
+				<div class="section wrap">
+					<div class="section-head">
+						<h2>保持闷骚</h2>
+						<div
+							class="chips"
+							role="group"
+							aria-label="筛选作品"
+							id="filters"
+						>
+							<button class="chip" type="button" data-filter="all" aria-pressed="true">
+								All
+							</button>
+							<button class="chip" type="button" data-filter="product" aria-pressed="false">
+								须知/冠卡
+							</button>
+							<button class="chip" type="button" data-filter="brand" aria-pressed="false">
+								话术/头牌
+							</button>
+							<button class="chip" type="button" data-filter="web" aria-pressed="false">
+								板评/自介
+							</button>
+						</div>
+					</div>
+					<ul class="grid" id="grid">
+						<li class="project" data-type="product">
+							<button class="project-btn" data-index="0" type="button" aria-label="打开 须知">
+								<span class="cover cover-0"></span>
+								<span class="reveal">
+									<span class="mono">0000</span>
+									<span class="tags">长按打开链接</span>
+								</span>
+							</button>
+							<h3>须知</h3>
+							<p class="mono">
+								<a href="https://www.kdocs.cn/l/cdBS5E2xKF70" target="_blank" rel="noopener">kdocs.cn/l/cdBS5E2xKF70</a>
+							</p>
+						</li>
+						<li class="project" data-type="brand">
+							<button class="project-btn" data-index="1" type="button" aria-label="打开 话术">
+								<span class="cover cover-1"></span>
+								<span class="reveal">
+									<span class="mono">0520</span>
+									<span class="tags">想親口告訴你個秘密 先親口再說</span>
+								</span>
+							</button>
+							<h3>话术</h3>
+							<p class="mono">
+								<a href="https://www.kdocs.cn/l/colx9iFlSC1F" target="_blank" rel="noopener">kdocs.cn/l/colx9iFlSC1F</a>
+							</p>
+						</li>
+						<li class="project" data-type="web">
+							<button class="project-btn" data-index="2" type="button" aria-label="打开 板评">
+								<span class="cover cover-2"></span>
+								<span class="reveal">
+									<span class="mono">1314</span>
+									<span class="tags">無論我再怎麼使壞 你都不能離開我</span>
+								</span>
+							</button>
+							<h3>板评</h3>
+							<p class="mono">
+								<a href="https://www.kdocs.cn/l/cq8gG1q46dxI" target="_blank" rel="noopener">kdocs.cn/l/cq8gG1q46dxI</a>
+							</p>
+						</li>
+						<li class="project" data-type="product">
+							<button class="project-btn" data-index="3" type="button" aria-label="打开 冠卡">
+								<span class="cover cover-3"></span>
+								<span class="reveal">
+									<span class="mono">5200</span>
+									<span class="tags">你的啃咬不過是我允許的撒嬌</span>
+								</span>
+							</button>
+							<h3>冠卡</h3>
+							<p class="mono">暂未整理合集 多数在pyq</p>
+						</li>
+						<li class="project" data-type="brand">
+							<button class="project-btn" data-index="4" type="button" aria-label="打开 头牌">
+								<span class="cover cover-4"></span>
+								<span class="reveal">
+									<span class="mono">……</span>
+									<span class="tags">你真不覺得自己有趣嗎 我的眼睛都離不開你</span>
+								</span>
+							</button>
+							<h3>头牌</h3>
+							<p class="mono">
+								<a href="https://www.kdocs.cn/l/csaX8j2X6dxb" target="_blank" rel="noopener">kdocs.cn/l/csaX8j2X6dxb</a>
+							</p>
+						</li>
+						<li class="project" data-type="web">
+							<button class="project-btn" data-index="5" type="button" aria-label="打开 自介">
+								<span class="cover cover-5"></span>
+								<span class="reveal">
+									<span class="mono">……</span>
+									<span class="tags">我保留一次你親我的權利</span>
+								</span>
+							</button>
+							<h3>自介</h3>
+							<p class="mono">
+								<a href="https://www.kdocs.cn/l/crOmRGs4TVer" target="_blank" rel="noopener">kdocs.cn/l/crOmRGs4TVer</a>
+							</p>
+						</li>
+					</ul>
+					<p class="grid-empty mono" id="gridEmpty" hidden>剩下由我決定</p>
+				</div>
+			</section>
+
+			<!-- 页面 2 · 关于 -->
+			<section class="page" data-page="2" id="page-about" aria-label="关于">
+				<div class="section wrap about">
+					<div class="portrait">
+						<svg viewBox="0 0 240 300" role="img" aria-label="肖像占位插画">
+							<rect width="240" height="300" fill="var(--accent)" />
+							<circle cx="120" cy="118" r="52" fill="var(--bg)" />
+							<path d="M40 300c0-62 36-96 80-96s80 34 80 96Z" fill="var(--bg)" />
+							<path d="M72 108c8-44 88-44 96 0-24-12-72-12-96 0Z" fill="var(--text)" />
+						</svg>
+					</div>
+					<div class="about-text">
+						<h2>自己</h2>
+						<p class="bio">
+							我躺在时间的碎片里用锐利的边缘切割生命的余温.用炭火堆砌起生活的温度.踩在清脆绵软的灰烬上重温回忆的火舌.人们常说是丑女衬托出了美人
+							愚公衬托出了智者.同样火舌赋予了温度
+							温度的遗民变成了余温.我很难在发现树之前找到落叶
+							在花开前找到瓣叶.单独出现的人或物从不孤苦伶仃
+							它们是一个事物的前因
+							同样是另一个事物的后果.但这一切的前提——它先是它自己
+						</p>
+						<h3 class="mono">惡名總比無名好</h3>
+						<ol class="timeline">
+							<li>
+								<span class="mono">0001</span>
+								<div>
+									<b>是眼泪吗</b>
+									<p>我看到了眼角的淚痕</p>
+								</div>
+							</li>
+							<li>
+								<span class="mono">0002</span>
+								<div>
+									<b>你想我吗</b>
+									<p>你的想念是悖論</p>
+								</div>
+							</li>
+							<li>
+								<span class="mono">0003</span>
+								<div>
+									<b>谈爱说恨</b>
+									<p>對我們來說都太過隆重</p>
+								</div>
+							</li>
+						</ol>
+						<h3 class="mono">业务扩展</h3>
+						<ul class="skills">
+							<li>病恋</li>
+							<li>树洞</li>
+							<li>虐恋</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- 页面 3 · 联系 -->
+			<section class="page" data-page="3" id="page-contact" aria-label="联系">
+				<div class="section wrap contact">
+					<div>
+						<h2>常驻团</h2>
+						<p class="role">聽說你想要找我 請告訴我你的需求</p>
+						<ul class="links">
+							<li>
+								<a
+									href="#"
+									id="copyMail"
+									data-email="hello@noravale.design"
+									class="mono"
+									>末日丁香</a
+								>
+							</li>
+						</ul>
+					</div>
+					<form class="form" id="contactForm" novalidate>
+						<div class="field">
+							<label for="name" class="mono">Name</label>
+							<input
+								id="name"
+								name="name"
+								type="text"
+								autocomplete="name"
+								required
+								minlength="2"
+							/>
+							<span class="hint" id="nameHint" aria-live="polite"></span>
+						</div>
+						<div class="field">
+							<label for="email" class="mono">Email</label>
+							<input
+								id="email"
+								name="email"
+								type="email"
+								autocomplete="email"
+								required
+							/>
+							<span class="hint" id="emailHint" aria-live="polite"></span>
+						</div>
+						<div class="field">
+							<label for="message" class="mono">Project</label>
+							<textarea
+								id="message"
+								name="message"
+								rows="4"
+								required
+								minlength="20"
+								placeholder="What are you making, and when does it need to exist?"
+							></textarea>
+							<span class="hint" id="messageHint" aria-live="polite"></span>
+						</div>
+						<button class="btn" type="submit">
+							Send message <span aria-hidden="true">→</span>
+						</button>
+					</form>
+				</div>
+			</section>
+		</div>
+
+		<!-- ---- Footer（全局） ---- -->
+		<footer class="site-footer">
+			<div class="wrap footer-row mono">
+				<span>© 2026 Nora Vale</span>
+				<span id="clock" aria-live="off">Local time —</span>
+				<a href="#page-hero" data-page="0">Top ↑</a>
+			</div>
+		</footer>
+
+		<!-- ---- Lightbox ---- -->
+		<div
+			class="lightbox"
+			id="lightbox"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="lbTitle"
+			hidden
+		>
+			<button class="lb-close icon-btn" id="lbClose" type="button" aria-label="关闭">
+				<svg viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M6 6l12 12M18 6 6 18" />
+				</svg>
+			</button>
+			<button class="lb-arrow prev icon-btn" id="lbPrev" type="button" aria-label="上一个作品">
+				<svg viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M19 12H5m6-7-7 7 7 7" />
+				</svg>
+			</button>
+			<figure class="lb-figure">
+				<div class="lb-cover" id="lbCover"></div>
+				<figcaption>
+					<h2 id="lbTitle"></h2>
+					<p id="lbCaption"></p>
+					<p class="mono" id="lbMeta"></p>
+				</figcaption>
+			</figure>
+			<button class="lb-arrow next icon-btn" id="lbNext" type="button" aria-label="下一个作品">
+				<svg viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M5 12h14m-6-7 7 7-7 7" />
+				</svg>
+			</button>
+		</div>
+
+		<div class="toast" id="toast" role="status" aria-live="polite"></div>
+		<script src="script.js" defer></script>
+	</body>
+</html>
